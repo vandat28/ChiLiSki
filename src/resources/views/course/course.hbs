@@ -1,0 +1,55 @@
+<main>
+    <div style="margin-bottom: 50px;">
+        <a href="#course1"
+            style="padding: 10px;border: 1px solid;color: black;margin-bottom: 50px;background-color: rgb(255, 255, 255);border-radius: 20px;">Khóa
+            học kỹ năng an
+            toàn cho bé</a>
+        <a href="#course2"
+            style="padding: 10px;border: 1px solid;color: black;margin-bottom: 50px;background-color: rgb(255, 255, 255);border-radius: 20px;">Khóa
+            học kỹ năng phòng chống đuối nước cho bé</a>
+    </div>
+
+    <div id="course1" class="container-course">
+        <div class="title">
+            <h2>Khóa học kỹ năng an toàn cho bé</h2>
+        </div>
+        <div class="container">
+            <div class="list-course">
+                {{#each list1}}
+                <a href="/course/{{this.id}}" class="course">
+                    <div class="course-content">
+                        <img src="https://i.ytimg.com/vi/{{this.hinhanh}}/maxresdefault.jpg" alt="">
+                        <p>{{this.ten}}</p>
+                        <div class="course-like">
+                            <p><i class="fa-solid fa-eye"></i> 12.212</p>
+                            <p><i class="fa-solid fa-thumbs-up"></i> 21.211</p>
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div id="course2" class="container-course">
+        <div class="title">
+            <h2>Khóa học kỹ năng phòng chống đuối nước cho bé</h2>
+        </div>
+        <div class="container">
+            <div class="list-course">
+                {{#each list2}}
+                <a href="/course/{{this.id}}" class="course">
+                    <div class="course-content">
+                        <img src="https://i.ytimg.com/vi/{{this.hinhanh}}/maxresdefault.jpg" alt="">
+                        <p>{{this.ten}}</p>
+                        <div class="course-like">
+                            <p><i class="fa-solid fa-eye"></i> 12.212</p>
+                            <p><i class="fa-solid fa-thumbs-up"></i> 21.211</p>
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,22 @@
+<main style="min-height: 63vh;">
+    <div class="container">
+        <div class="list-course">
+            {{#if list}}
+            {{#each list}}
+            <a href="/course/{{this.id}}" class="course">
+                <div class="course-content">
+                    <img src="https://i.ytimg.com/vi/{{this.hinhanh}}/maxresdefault.jpg" alt="">
+                    <p>{{this.ten}}</p>
+                    <div class="course-like">
+                        <p><i class="fa-solid fa-eye"></i> 12.212</p>
+                        <p><i class="fa-solid fa-thumbs-up"></i> 21.211</p>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+            {{else}}
+            <p class="no-course">Không tìm thấy</p>
+            {{/if}}
+        </div>
+    </div>
+</main>

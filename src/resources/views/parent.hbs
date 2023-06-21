@@ -1,0 +1,45 @@
+<main>
+  <div class="container-parent">
+
+    <div class="personal-info">
+      <img class="avatar" src="/uploads/{{account.avatar}}" alt="Ảnh đại diện">
+      <form class="file-input-wrapper" action="/parent/profile" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" id="file-input" class="file-input" />
+        <label for="file-input" class="file-label"><i class="fa-sharp fa-solid fa-plus"></i></label>
+        <button class="custom-button" type="submit">Cập nhật</button>
+      </form>
+      <h2 class="name">{{account.hoten}}</h2>
+      <p class="address">Địa chỉ: {{account.diachi}}</p>
+
+    </div>
+
+
+    <div class="child-info">
+      <h3 class="section-title">Thông tin của bé</h3>
+      <p class="child-name">Tên bé: {{account.tencon}}</p>
+      <p class="child-age">Tuổi: {{account.tuoicon}}</p>
+    </div>
+    <div class="button-info">
+      <button>Thêm thông tin</button>
+      <button>Sửa thông tin</button>
+    </div>
+  </div>
+  <div class="courses-info">
+    <h3 class="section-title">Các khóa học đã học</h3>
+    <div class="list-course">
+      {{#if listCourse}}
+      {{#each listCourse}}
+      <a href="/course/{{this.idkhoahoc}}" class="course" style="width: 19.2%;">
+        <div class="course-content">
+          <img src="https://i.ytimg.com/vi/{{this.hinhanh}}/maxresdefault.jpg" alt="">
+          <p>{{this.ten}}</p>
+          <p>Điểm: {{this.max_diemso}}</p>
+        </div>
+      </a>
+      {{/each}}
+      {{else}}
+      <p class="no-course">Chưa học khóa học nào...</p>
+      {{/if}}
+    </div>
+  </div>
+</main>

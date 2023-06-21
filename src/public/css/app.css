@@ -1,0 +1,676 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Thiết lập màu sắc cho thanh cuộn */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Độ rộng của thanh cuộn */
+}
+
+/* Thiết lập màu sắc của phần nền thanh cuộn */
+::-webkit-scrollbar-track {
+  background: #a5a4a4;
+}
+
+/* Thiết lập màu sắc của thanh cuộn khi di chuột qua */
+::-webkit-scrollbar-thumb {
+  background: #0076d6;
+}
+
+/* Thiết lập màu sắc của thanh cuộn khi được kéo */
+::-webkit-scrollbar-thumb:hover {
+  background: #00a6ff;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+.header {
+  --height: 70px;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #e8ebed;
+  display: flex;
+  font-size: 1.4rem;
+  height: var(--height);
+  left: 0;
+  padding: 0 30px;
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+  align-items: center;
+  display: flex;
+  flex: 1 1;
+}
+
+.header-logo a {
+  display: flex;
+}
+
+.header-logo img {
+  border-radius: 8px;
+  flex-shrink: 0;
+  height: 50px;
+  object-fit: contain;
+}
+
+.header h4 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 16px;
+}
+
+.header-search {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex: 1 1;
+}
+
+.header-search-content {
+  border: 2px solid #e8e8e8;
+  border-radius: 20px;
+  flex: 1 1;
+  height: 40px;
+  padding: 0 16px 0 8px;
+  transition: border-color .2s ease-in-out;
+  width: 420px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header-search-content-icon {
+  background-color: #fff;
+  background-image: url(/img/search.9bd3926522ea0937310c.svg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  border-radius: 50%;
+  height: 32px;
+  opacity: .7;
+  transition: opacity .2s ease-in-out;
+  width: 30px;
+  border: none;
+}
+
+.header-search-content-input {
+  border: none;
+  caret-color: #444;
+  flex: 1 1;
+  height: 100%;
+  outline: none;
+  padding: 0 4px;
+}
+
+.header-search-content-icon:hover {
+  opacity: 1;
+}
+
+.header-right {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1;
+}
+
+.header-right-button {
+  background-color: #0076C6;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 9px 20px;
+}
+
+.header-right-button:hover {
+  opacity: .9;
+}
+
+.header-right-icon {
+  padding: 8px;
+  position: relative;
+  user-select: none;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.header-right-icon:hover {
+  opacity: 1;
+}
+
+.header-right-icon i {
+  font-size: 20px;
+}
+
+.header-right-my {
+  margin-left: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-right-my img {
+  border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
+}
+
+.dropdown {
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  position: absolute;
+  width: 190px;
+  top: 35px;
+  right: 10px;
+  background-color: white;
+  display: none;
+}
+
+.content-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+.content-dropdown a {
+  font-family: system-ui;
+}
+
+.content-dropdown a p {
+  color: #101010;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.open {
+  display: block;
+}
+
+.content-dropdown a:hover {
+  background-color: #e3e2e2;
+}
+
+nav.navbar {
+  display: inline-block;
+  border-right: 1px solid #e8ebed;
+  position: fixed;
+  bottom: 0px;
+  top: 70px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content a {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16px;
+  color: #404040;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  justify-content: center;
+  margin-top: 4px;
+  width: 80px;
+}
+
+.navbar-content i {
+  font-size: 1.2rem;
+  color: #101010;
+}
+
+.navbar-content span {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.navbar-content ul {
+  list-style: none;
+  --width: 96px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: 0 8px;
+  top: 74px;
+  width: var(--width);
+  z-index: 8;
+}
+
+.navbar-content a:hover {
+  background-color: #e3e2e2;
+}
+
+.navbar-content a.active {
+  background-color: #e3e2e2;
+}
+
+.arrowup {
+  color: black;
+  position: relative;
+  padding: 10px 17px;
+  background-color: #bac0c3;
+  border-radius: 15px;
+  left: 32px;
+  top: 230px;
+  border: 1px solid #c4c7c8;
+}
+
+.arrowup:hover {
+  color: #fff;
+  background-color: #343333;
+}
+
+main {
+  margin-left: 113px;
+  padding: 35px;
+  background-color: #f9f9f9;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.title h2 {
+  padding: 0 5px;
+  font-size: 33px;
+  font-weight: 900;
+}
+
+.container-course {
+  margin-bottom: 50px;
+}
+
+.container {
+  width: 100%;
+}
+
+.list-course {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1%;
+}
+
+.course {
+  border-radius: 25px;
+  width: 24.25%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  background-color: #fff;
+  color: black;
+}
+
+.course:hover {
+  background-color: #5d5d5d;
+  color: #ffffff;
+}
+
+.course-content {
+  padding: 10px 5px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.course-content:hover img {
+  transform: scale(1.2);
+  /* Phóng to hình ảnh lên 1.2 lần */
+}
+
+.course-content img {
+  border-radius: 25px;
+  width: 100%;
+  transition: transform 0.5s;
+}
+
+.course-content p {
+  font-size: 14px;
+  margin-top: 30px;
+  font-weight: 600;
+  height: 40px;
+}
+
+.container-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-home {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-home p {
+  font-size: 50px;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.title-home p:nth-child(2) {
+  font-size: 20px;
+}
+
+.button-learn-now {
+  padding: 20px;
+  background-color: #e92d53;
+  color: white;
+  border-radius: 30px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.button-learn-now i {
+  font-size: 15px;
+  /* padding: 0px; */
+  margin: 5px;
+}
+
+.button-learn-now:hover {
+  transform: translateX(20px);
+  background-color: #0998c4;
+  color: #101010;
+}
+
+.button-learn-now:active {
+  transform: translate(20px, 10px);
+}
+
+img.img-home {
+  height: 470px;
+}
+
+footer {
+  background-color: #181821;
+  margin-left: 113px;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-footer {
+  display: flex;
+  color: #f2f2f2;
+}
+
+.container-footer p {
+  width: 33.3333%;
+}
+
+.title-footer {
+  color: #f2f2f2;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.container-detail {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-video {
+  width: 70%;
+}
+
+.iframe-wrapper {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 480px;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.relation {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-test {
+  width: 25%;
+}
+
+.quiz-container {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+.quiz-container button:hover {
+  background-color: #45a049;
+}
+
+.quiz-container input[type="radio"] {
+  margin-right: 5px;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+.question p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.detail-title {
+  margin: 15px 0px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.detail-description {
+  margin: 20px 0;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.test-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.course-like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-like p {
+  width: 50%;
+  text-align: center;
+}
+
+.course-like p>i {
+  margin-right: 5px;
+}
+
+.relation-title {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.container-score {
+  text-align: center;
+}
+
+.score {
+  font-size: 24px;
+}
+
+#scoreValue {
+  font-size: 20px;
+}
+
+.congratulations {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.container-parent {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.personal-info {
+  width: 33.33%;
+}
+
+.child-info {
+  width: 33.333%;
+}
+
+.button-info {
+  width: 33.333%;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.award {
+  text-align: left;
+  width: 50%;
+}
+
+.award-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.award-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.award-motivation {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.ranking-table {
+  width: 50%;
+}
+
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  right: 55px;
+  bottom: 5px;
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #2196f3;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.file-label:hover {
+  background-color: #1976d2;
+}
+
+.custom-button {
+  padding: 8px 12px;
+  background-color: #2196f3;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}
+
+.no-course {
+  margin-bottom: 135px;
+}

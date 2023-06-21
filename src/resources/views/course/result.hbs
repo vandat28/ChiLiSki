@@ -1,0 +1,70 @@
+<main>
+    <div class="container-score">
+        <h1 class="score">Điểm: <span id="scoreValue">{{score}}</span></h1>
+        <p class="congratulations"></p>
+        <button
+            style="background-color: rgb(22, 198, 139);border: none;padding: 10px;width: 60px;color: gb(32, 23, 23); border-radius: 10px;">Đúng</button>
+        <button
+            style="background-color: rgb(245, 51, 51);border: none;padding: 10px;width: 60px;color: rgb(32, 23, 23);border-radius: 10px;">Sai</button>
+    </div>
+    <div style="margin-bottom: 50px;">
+        {{#each questions}}
+        <div class="question">
+            <p>Câu {{inc @index}}: {{question}}</p>
+            {{#each answers}}
+            <div>
+                <input class="answer" type="radio" value="{{this.id}}">
+                <label>{{this.dapan}}</label><br>
+            </div>
+            {{/each}}
+            <p style="display:none" class="checked">{{checked}}</p>
+            <h3 style="display:none" class="answerTrue">{{answerTrue}}</h3>
+        </div>
+        {{/each}}
+    </div>
+    <div class="container-score">
+        <a href="/course/{{id}}" class="btn" id="retryBtn">Thi lại</a>
+        <a href="/save-score?id={{id}}&score={{score}}" class="btn" id="saveBtn">Lưu điểm</a>
+    </div>
+</main>
+
+<script>
+    let score = document.querySelector('#scoreValue').innerText
+    let scoreInt = parseInt(score)
+    const congratulations = document.querySelector('.congratulations')
+    if (scoreInt > 50) {
+        const audio = new Audio('/audio/Tieng-vo-tay-tra-loi-dung-www_tiengdong_com.mp3');
+        congratulations.innerText = 'Chúc mừng! bé đã hoàn thành xuất sắc bài thi'
+        audio.play();
+    } else {
+        const audio = new Audio('/audio/Tieng-khan-gia-o-that-vong.mp3');
+        congratulations.innerText = 'Tiếc quá! điểm hơi thấp rồi thi lại nhé'
+        audio.play();
+    }
+
+    let answer = document.querySelectorAll('.answer')
+    let answerTrue = document.querySelectorAll('.answerTrue')
+    let checked = document.querySelectorAll('.checked')
+    console.log(checked)
+    answer.forEach(e => {
+        if (e.value === answerTrue[0].innerText ||
+            e.value === answerTrue[1].innerText ||
+            e.value === answerTrue[2].innerText ||
+            e.value === answerTrue[3].innerText) {
+            console.log(e)
+            e.parentElement.style.color = 'rgb(22, 198, 139)'
+        } else {
+            e.parentElement.style.color = 'rgb(245, 51, 51)'
+
+        }
+
+        if (e.value === checked[0].innerText ||
+            e.value === checked[1].innerText ||
+            e.value === checked[2].innerText ||
+            e.value === checked[3].innerText) {
+            e.checked = true
+        } else {
+            e.disabled = true
+        }
+    })
+</script>

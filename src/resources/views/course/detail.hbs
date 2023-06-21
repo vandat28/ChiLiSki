@@ -1,0 +1,57 @@
+<main>
+    <div class="container-detail">
+        <div class="detail-video">
+            {{#each course}}
+            <div class="iframe-wrapper">
+                <iframe id="video" src="https://www.youtube.com/embed/{{this.video}}" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="detail-title">{{this.ten}}</div>
+            <div class="course-like">
+                <p><i class="fa-solid fa-eye"></i> 12.212</p>
+                <p><i class="fa-solid fa-thumbs-up"></i> 21.211</p>
+            </div>
+            <div class="detail-description">
+                {{this.mieuta}}
+            </div>
+            {{/each}}
+            <div class="quiz-container">
+                <form action="/course/result/{{id}}" id="form-question" method="post">
+                    <div class="test-title">Bé hãy làm bài kiểm tra sau khi học xong nhé</div>
+                    {{#each questions}}
+                    <div class="question">
+                        <p>Câu {{inc @index}}: {{this.question}}</p>
+                        {{#each answers}}
+                        <input type="radio" name="question{{inc @../index}}" value="{{this.id}}">
+                        <label>{{this.dapan}}</label><br>
+                        {{/each}}
+                    </div>
+                    {{/each}}
+                    <button type="submit">Bé làm xong</button>
+                </form>
+            </div>
+            <h1 style="font-size: 20px;" class="text"></h1>
+        </div>
+        <div class="detail-test">
+            <p class="relation-title">
+                Những bài học liên quan
+            </p>
+            {{#each list}}
+            <div class="relation">
+                <a href="/course/{{this.id}}" class="course" style="width: 100%;">
+                    <div class="course-content">
+                        <img src="https://i.ytimg.com/vi/{{this.hinhanh}}/maxresdefault.jpg" alt="">
+                        <p>{{this.ten}}</p>
+                        <div class="course-like">
+                            <p><i class="fa-solid fa-eye"></i> 12.212</p>
+                            <p><i class="fa-solid fa-thumbs-up"></i> 21.211</p>
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</main>

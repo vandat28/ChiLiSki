@@ -1,0 +1,84 @@
+<header class="header">
+    <div class="header-logo">
+        <a href="/">
+            <img src="/img/ChiLiSkiLogo.png" alt="">
+        </a>
+        <h4>Children's life skill</h4>
+    </div>
+    <div class="header-search">
+        <div>
+            <form action="/search" class="header-search-content">
+                <button type="submit" class="header-search-content-icon">
+                </button>
+                <input name="searchTxt" class="header-search-content-input" type="text"
+                    placeholder="Tìm kiếm nào bé ơi...">
+            </form>
+        </div>
+    </div>
+    <div class="header-right">
+        <div id="navbar-actions-portal"></div>
+        <a href="/login" class="header-right-button">Đăng nhập</a>
+        <div class="header-right-icon">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <div class="name-user"></div>
+        <div class="header-right-my" onclick="openDropdown()">
+            <div>
+                <img id="avatar" alt="">
+            </div>
+            <div class="dropdown">
+                <div class="content-dropdown">
+                    <a href="/parent">
+                        <p>Xem thông tin</p>
+
+                    </a>
+                    <a href="">
+                        <p>Chính sách</p>
+
+                    </a>
+                    <a href="">
+                        <p>Cài dặt</p>
+
+                    </a>
+                    <a href="/logout">
+                        <p>Đăng xuất</p>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="navbar">
+    <div class="navbar-content">
+        <ul>
+            <li>
+                <a class="navbar-link" href="/">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            <li>
+                <a class="navbar-link" href="/course">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Học</span>
+                </a>
+            </li>
+            <li>
+                <a class="navbar-link" href="/parent">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Phụ huynh</span>
+                </a>
+            </li>
+            <li>
+                <a class="navbar-link" href="/rank">
+                    <i class="fa-solid fa-ranking-star"></i>
+                    <span>Xếp hạng</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <a href="#" title="Lên đầu trang" class="arrowup">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+</nav>

@@ -1,0 +1,30 @@
+<main style="height: 62vh;">
+  <div class="container-parent">
+    <div class="award">
+      <h3 class="award-title">Giải thưởng xuất sắc nhất tuần</h3>
+      <img class="award-image" src="/img/thu-vien-hinh-anh-dau-tien-cho-be-bo-8-quyen-tai-ban.png"
+        alt="Hình ảnh giải thưởng">
+      <p class="award-motivation">Thư viện hình ảnh đầu tiên cho bé</p>
+      <p class="award-motivation">Bé hãy cố gắng lên nhé</p>
+    </div>
+    <div class="ranking-table">
+      <h3 class="section-title">Bảng xếp hạng điểm top 3 tuần này</h3>
+      <table>
+        <tr>
+          <th>Hạng</th>
+          <th>Tên phụ huynh</th>
+          <th>Tên bé</th>
+          <th>Điểm</th>
+        </tr>
+        {{#each listRank}}
+        <tr>
+          <td>{{inc @index}}</td>
+          <td>{{this.hoten}}</td>
+          <td>{{this.tencon}}</td>
+          <td>{{this.tongdiem}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</main>
