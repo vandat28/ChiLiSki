@@ -7,7 +7,7 @@ class CourseController {
         let list1 = await courseService.findCourseByCaterogy(1)
         let list2 = await courseService.findCourseByCaterogy(2)
         res.render('course/course', { list1, list2 })
-        // res.json(list1)
+
 
     }
 
@@ -26,7 +26,7 @@ class CourseController {
             }))
         }
         res.render('course/detail', { course, list, questions, id })
-        // res.json(course)
+
     }
 
     async result(req, res) {
@@ -65,6 +65,10 @@ class CourseController {
         }
         res.render('course/result', { score, id, questions })
     }
+
+
+
+
 
 }
 
