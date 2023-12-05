@@ -7,6 +7,7 @@ const loginRouter = require('./login')
 const logoutRouter = require('./logout')
 const saveScoreRouter = require('./saveScore')
 const searchRouter = require('./search')
+const apiAdmin = require('./apiAdmin')
 function route(app) {
     app.use('/', homeRouter)
     app.use('/course', courseRouter)
@@ -17,8 +18,8 @@ function route(app) {
     app.use('/logout', logoutRouter)
     app.use('/save-score', saveScoreRouter)
     app.use('/search', searchRouter)
-
-
+    //api-admin
+    app.use('/api/admin', apiAdmin)
 }
 
 module.exports = route

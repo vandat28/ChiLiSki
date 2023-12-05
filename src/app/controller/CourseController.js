@@ -4,11 +4,16 @@ const questionService = require('../service/questionService')
 class CourseController {
     async show(req, res) {
         res.locals.title = 'Khóa học';
-        let list1 = await courseService.findCourseByCaterogy(1)
-        let list2 = await courseService.findCourseByCaterogy(2)
-        res.render('course/course', { list1, list2 })
-
-
+        let data = []
+        let caterogy = await courseService.findCaterogy()
+        for (let i = 0; i < caterogy.length; i++) {
+            let course = await courseService.findCourseByCaterogy(caterogy[i].id)
+            data.push(new Object({
+                caterogy: caterogy[i].ten,
+                course,
+            }))
+        }
+        res.render('course/course', { data, caterogy })
     }
 
     async detail(req, res) {

@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
-var cors = require('cors')
 const path = require('path')
+var cors = require('cors')
 app.use(cors())
 //public 
 app.use(express.static(path.join(__dirname, '/public')))
